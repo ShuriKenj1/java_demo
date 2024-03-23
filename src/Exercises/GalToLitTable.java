@@ -1,5 +1,5 @@
 package Exercises;
-
+// Упражнение 1.2
 public class GalToLitTable {
     public static void main(String args[]) {
         double gallons, liters;
