@@ -1,5 +1,5 @@
 package Exercises;
-
+// Упражнение 2.1
 public class Sound {
     public static void main(String[] args) {
         double dist;
