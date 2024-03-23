@@ -1,5 +1,5 @@
 package Exercises;
-
+// Упражнение 10, страница 55
 public class InchToMetres10 {
     public static void main(String[] args) {
         double in, m;
