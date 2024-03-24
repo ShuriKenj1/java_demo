@@ -1,4 +1,4 @@
-package Exercises;
+package HW.Second;
 
 public class For1000To2HW {
     public static void main(String[] args) {
