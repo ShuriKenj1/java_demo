@@ -1,4 +1,4 @@
-package Exercises;
+package HW.Second;
 //Упражнение 2.2
 //Отображение таблицы истинности для логических операций
 public class LogicalOpTable {

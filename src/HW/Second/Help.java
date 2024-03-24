@@ -1,4 +1,4 @@
-package Exercises;
+package HW.Second;
 // простая справочная система
 import java.io.IOException;
 public class Help {

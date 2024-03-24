@@ -1,4 +1,4 @@
-package Exercises;
+package HW.Second;
 
 public class LogicalOpTable10ver {
     public static void main(String[] args) {
