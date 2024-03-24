@@ -1,4 +1,4 @@
-package Exercises;
+package HW.First;
 /*
     Упражнение 1.1
     Программа перевода галлонов в литры.

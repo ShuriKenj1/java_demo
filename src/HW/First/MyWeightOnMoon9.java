@@ -1,4 +1,4 @@
-package Exercises;
+package HW.First;
 // Упражнение 9, страница 55
 public class MyWeightOnMoon9 {
     public static void main(String args[]) {

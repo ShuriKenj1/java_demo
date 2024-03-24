@@ -1,4 +1,4 @@
-package Exercises;
+package HW.First;
 // Упражнение 1.2
 public class GalToLitTable {
     public static void main(String args[]) {

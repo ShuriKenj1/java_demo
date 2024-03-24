@@ -1,4 +1,4 @@
-package Exercises;
+package HW.First;
 // Упражнение 10, страница 55
 public class InchToMetres10 {
     public static void main(String[] args) {

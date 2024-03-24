@@ -1,4 +1,4 @@
-package Exercises;
+package HW.First;
 // Упражнение 2.1
 public class Sound {
     public static void main(String[] args) {
