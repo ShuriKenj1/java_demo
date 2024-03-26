@@ -1,4 +1,4 @@
-package Exercises;
+package HW.Third;
 import java.io.IOException;
 // Расширенная справочная система,
 // в которой используется цикл do-while

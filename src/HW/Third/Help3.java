@@ -1,4 +1,4 @@
-package Exercises;
+package HW.Third;
 // завершенная справочная система по управляющим
 // операторам Java, обрабатывающая многократные запросы
 public class Help3 {
