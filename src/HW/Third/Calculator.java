@@ -1,9 +1,9 @@
 package HW.Third;
 
-import java.util.Scanner;
+import java.io.IOException;
 
 public class Calculator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         char ignore;
         int number1, number2, sum;
