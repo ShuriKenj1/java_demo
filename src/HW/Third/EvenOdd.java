@@ -7,13 +7,11 @@ public class EvenOdd {
 
         Scanner number = new Scanner(System.in);
 
-        do {
-            System.out.println("\nPrint your number: ");
-            int userType = Integer.parseInt(number.nextLine());
+        System.out.println("\nPrint your number: ");
+        int userType = Integer.parseInt(number.nextLine());
 
-            if ((userType % 2) == 0) {
-                System.out.println("This number is even");
-            } else System.out.println("This number is odd");
-        } while (true);
+        if ((userType % 2) == 0) {
+            System.out.println("This number is even");
+        } else System.out.println("This number is odd");
     }
 }
