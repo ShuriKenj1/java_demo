@@ -38,7 +38,7 @@ public class SwitchDemo {
                 default:
                     System.out.println("i is equal or greater than 5");
             }
-            switch (i) { //"enhanced" version - более сокращенная, без break
+            switch (i) { //"enhanced" version - более сокращенная, без break и со стрелками
                 case 0 -> System.out.println("i is equal to 0");
                 case 1 -> System.out.println("i is equal to 1");
                 case 2 -> System.out.println("i is equal to 2");
