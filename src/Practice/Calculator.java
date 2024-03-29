@@ -1,5 +1,6 @@
 package Practice;
-
+// пиздец, тут висел готовый калькулятор ахаха)
+// нормально, зато я написал свой новый
 import java.util.Scanner;
 
 public class Calculator {
@@ -20,17 +21,27 @@ public class Calculator {
         System.out.println("Select operation: +, -, *, /, %");
         operation = input1.nextLine().charAt(0);
 
-        if (operation == '+') {
-            System.out.println("Sum of x + y is " + (x + y));
-        } else if (operation == '-') {
-            System.out.println("Deduction of x - y is " + (x - y));
-        } else if (operation == '*') {
-            System.out.println("Multiplication of x * y is " + (x * y));
-        } else if (operation == '/' && y != 0) {
-            //уже поменял к домашке на условие с нулем (побрейнштормить над switch, проверка на ноль уже готова)
-            System.out.println("Division of x / y is " + (x / y));
-        } else if (operation == '%') {
-            System.out.println("Module division of x % y is " + (x % y));
-        } else System.out.println("Unknown operation");
+        switch (operation) {
+            case '+' ->  System.out.println("Sum of x + y is " + (x + y));
+            case '-' ->  System.out.println("Deduction of x - y is " + (x - y));
+            case '*' ->  System.out.println("Multiplication of x * y is " + (x * y));
+            case '/' ->  System.out.println("Division of x / y is " + (double) (x / y));
+            case '%' ->  System.out.println("Module division of x % y is " + (double) (x % y));
+        }
+
+
+//        более длинная форма записи - через if
+//        if (operation == '+') {
+//            System.out.println("Sum of x + y is " + (x + y));
+//        } else if (operation == '-') {
+//            System.out.println("Deduction of x - y is " + (x - y));
+//        } else if (operation == '*') {
+//            System.out.println("Multiplication of x * y is " + (x * y));
+//        } else if (operation == '/' && y != 0) {
+//            //уже поменял к домашке на условие с нулем (побрейнштормить над switch, проверка на ноль уже готова)
+//            System.out.println("Division of x / y is " + (x / y));
+//        } else if (operation == '%') {
+//            System.out.println("Module division of x % y is " + (x % y));
+//        } else System.out.println("Unknown operation");
     }
 }
