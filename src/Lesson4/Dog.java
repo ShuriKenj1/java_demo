@@ -31,4 +31,22 @@ public class Dog {
                 + "\ncolour: " + colour
         );
     }
+
+    public static void printDogInfo(Dog someDog){
+        System.out.println("\nInfo about the dog " + someDog.name + ": "
+                + "\nbreed: " + someDog.breed
+                + "\nage: " + someDog.age
+                + "\nisFemale: " + someDog.isFemale
+                + "\ncolour: " + someDog.colour
+        );
+    }
+
+    public static void printDogInfo(String name){
+        System.out.println("This is static method!");
+        System.out.println("\nInfo about the dog named " + name);
+    }
+
+    static int sum(int a, int b) {
+        return a + b;
+    }
 }
