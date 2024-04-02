@@ -6,12 +6,13 @@ public class Vehicle {
     int mpg; // потребление топлива в милях на галлон
 
     // Отобразить дальность поездки транспортного средства
-    void range() {
-        System.out.println("Дальность - " + fuelcap * mpg + " миль.");
+    int range(){
+        return fuelcap * mpg; // возврат дальности поездки
+                              // для заданного транспортного средства
     }
 }
 
-class AddMeth {
+class RetMeth {
     public static void main(String[] args) {
         Vehicle minivan = new Vehicle();
         Vehicle sportscar = new Vehicle();
@@ -28,15 +29,14 @@ class AddMeth {
         sportscar.fuelcap = 14;
         sportscar.mpg = 12;
 
-        System.out.print("Мини-фургон может перевезти " +
-                minivan.passengers + " пассажиров. ");
+        // Получить дальность поездки для разных транспортных средств
+        range1 = minivan.range();   // присовение переменной значения,
+        range2 = sportscar.range(); // возвращаемого методом
 
-        minivan.range(); // отобразить дальность поездки мини-фургона
+        System.out.println("Мини-фургон может перевезти " +
+                minivan.passengers + " пассажиров на расстояние " + range1 + " миль.");
 
-        System.out.print("Спортивный автомобиль может перевезти " +
-                sportscar.passengers + " пассажиров. ");
-
-        sportscar.range(); // отобразить дальность поездки
-                           // спортивного автомобиля
+        System.out.println("Спортивный автомобиль может перевезти " +
+                sportscar.passengers + " пассажиров на расстояние " + range2 + " миль.");
     }
 }
