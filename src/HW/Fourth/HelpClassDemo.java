@@ -1,4 +1,4 @@
-package Exercises.Chapter4;
+package HW.Fourth;
 /*
     Преобразование в класс Help справочной системы
     из упражнения 3.3
