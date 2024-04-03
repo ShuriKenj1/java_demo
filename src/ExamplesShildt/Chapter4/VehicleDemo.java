@@ -2,13 +2,13 @@ package ExamplesShildt.Chapter4;
 
 public class VehicleDemo {
     public static void main(String[] args) {
-        Vehicle mustang = new Vehicle();
+        Vehicle mustang = new Vehicle(7,16,21);
         int range;
 
-        // Присвоить значения полям в объекте mustang
-        mustang.passengers = 7;
-        mustang.fuelcap = 16;
-        mustang.mpg = 21;
+//        Присвоить значения полям в объекте mustang
+//        mustang.passengers = 7;
+//        mustang.fuelcap = 16;
+//        mustang.mpg = 21;
 
         // Рассчитать дальность поездки при полном баке
         range = mustang.fuelcap * mustang.mpg;
