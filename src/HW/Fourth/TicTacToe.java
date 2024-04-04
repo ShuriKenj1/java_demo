@@ -15,16 +15,16 @@ public class TicTacToe {
         System.out.println("Welcome to the TicTacToe game!\n" +
                 "This is the field:");
 
-        void printField() {
-            if (i == 2 | i == 5) System.out.print(i + "\n");
-            else System.out.print(i + "\t");
-        }
+//        void printField() {
+//            if (i == 2 | i == 5) System.out.print(i + "\n");
+//            else System.out.print(i + "\t");
+//        }
 
         System.out.println("\nChoose where to put your 'x' " +
                 "with typing the number from 0 to 8: ");
         choice = (char) System.in.read();
 
-        do {
+//        do {
             switch (choice) {
                 case '0':
                     fields[0] = 'x';
@@ -54,6 +54,6 @@ public class TicTacToe {
                     fields[8] = 'x';
                     break;
             }
-        } while ()
+//        } while ()
     }
 }
