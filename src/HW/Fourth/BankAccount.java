@@ -26,6 +26,10 @@ public class BankAccount {
                 "\n Your current balance: " + currentBalance);
     }
 
+    void checkBalance(){
+        System.out.println("Your current balance is " + currentBalance);
+    }
+
     boolean ifTrueAccount() {
         do {
             System.out.println("\nFirstly, we need to be sure that this account is yours");
