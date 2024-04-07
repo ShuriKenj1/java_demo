@@ -3,7 +3,6 @@ package HW.Fourth;
 import java.util.Scanner;
 
 public class TicTacToe {
-    int f;
     char field[] = new char[9];
     char figureOfPlayer;
     char figureOfProgram;
@@ -13,7 +12,7 @@ public class TicTacToe {
     boolean isFieldEmpty[] = new boolean[9];
 
     void initializeField() {
-        for (f = 0; f < field.length; f++) {
+        for (int f = 0; f < field.length; f++) {
             field[f] = ' ';
             isFieldEmpty[f] = true;
         }
@@ -101,7 +100,7 @@ public class TicTacToe {
         } else if (playerDecidesWhereToGo == 8 & isFieldEmpty[8]) {
             field[8] = figureOfPlayer;
             isFieldEmpty[8] = false;
-        } else if (playerDecidesWhereToGo < '0' | playerDecidesWhereToGo > '8'){
+        } else if (playerDecidesWhereToGo < '0' | playerDecidesWhereToGo > '8') {
             System.out.println("Only numbers from 0 to 8 may be used, try again");
             playersMove();
         } else {
@@ -117,12 +116,35 @@ public class TicTacToe {
             field[4] = figureOfProgram;
             isFieldEmpty[4] = false;
         }
-        if (field[])
+
         /*
         здесь рассмотреть все варианты победы для робота,
         и только потом уже разобраться с вариантами ходов от игрока - потому что бот должен понимать,
         что если он в шаге от победы - это сверх приоритет должно иметь и дальше не имеет значение куда походил игрок
          */
+
+//        попробую через такую структуру расписать все
+        if (field[0] == figureOfProgram) {
+            if (field[1] == figureOfProgram) {
+                field[2] = figureOfProgram;
+                isFieldEmpty[2] = false;
+            } else if (field[2] == figureOfProgram) {
+                field[1] = figureOfProgram;
+                isFieldEmpty[1] = false;
+            } else if (field[4] == figureOfProgram) {
+                field[8] = figureOfProgram;
+                isFieldEmpty[8] = false;
+            }
+            /*
+            подумать, стоит ли делать так, как ниже - если я тут ему распишу все варианты,
+            то тогда он не сможет отталкиваться никак от игры игрока.
+            (можно попробовать дописать и посмотреть, как он будет тогда действовать и будет ли такая стратегия игры для него эффективной)
+             */
+            else if (isFieldEmpty[0]){
+                field[0] = figureOfProgram;
+                isFieldEmpty[0] = false;
+            }
+        }
 
         switch (playerDecidesWhereToGo) {
             case 0:
@@ -135,7 +157,7 @@ public class TicTacToe {
                 } else if (field[4] == figureOfPlayer & isFieldEmpty[4]) {
                     field[4] = figureOfProgram;
                     isFieldEmpty[4] = false;
-                } else if (){
+                } else if () {
 
                 }
                 playersMove();
@@ -143,23 +165,6 @@ public class TicTacToe {
 
 
         }
-//         else if (field[0] == figureOfPlayer) {
-//            field[8] = figureOfProgram;
-//        } else if (field[1] == figureOfPlayer) {
-//            field[7] = figureOfProgram;
-//        } else if (field[2] == figureOfPlayer) {
-//            field[6] = figureOfProgram;
-//        } else if (field[3] == figureOfPlayer) {
-//            field[5] = figureOfProgram;
-//        } else if (field[5] == figureOfPlayer) {
-//            field[3] = figureOfProgram;
-//        } else if (field[6] == figureOfPlayer) {
-//            field[2] = figureOfProgram;
-//        } else if (field[7] == figureOfPlayer) {
-//            field[1] = figureOfProgram;
-//        } else if (field[8] == figureOfPlayer) {
-//            field[0] = figureOfProgram;
-//        }
     }
 
     boolean IfPlayerWin() {
