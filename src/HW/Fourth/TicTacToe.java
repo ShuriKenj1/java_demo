@@ -53,7 +53,10 @@ public class TicTacToe {
                 System.out.println("The program will play for X." +
                         "\nYou will go after it.");
                 figureOfProgram = 'X';
-            } else System.out.println("You may write here only X or O, try again");
+            } else {
+                System.out.println("You may write here only X or O, try again\n");
+                choiceOfFigure();
+            }
         } while (figureOfPlayer != 'X' && figureOfPlayer != 'O');
     }
 
@@ -146,25 +149,25 @@ public class TicTacToe {
             }
         }
 
-        switch (playerDecidesWhereToGo) {
-            case 0:
-                if (field[1] == figureOfPlayer & isFieldEmpty[2]) {
-                    field[2] = figureOfProgram;
-                    isFieldEmpty[2] = false;
-                } else if (field[3] == figureOfPlayer & isFieldEmpty[6]) {
-                    field[6] = figureOfProgram;
-                    isFieldEmpty[6] = false;
-                } else if (field[4] == figureOfPlayer & isFieldEmpty[4]) {
-                    field[4] = figureOfProgram;
-                    isFieldEmpty[4] = false;
-                } else if () {
-
-                }
-                playersMove();
-            case 1:
-
-
-        }
+//        switch (playerDecidesWhereToGo) {
+//            case 0:
+//                if (field[1] == figureOfPlayer & isFieldEmpty[2]) {
+//                    field[2] = figureOfProgram;
+//                    isFieldEmpty[2] = false;
+//                } else if (field[3] == figureOfPlayer & isFieldEmpty[6]) {
+//                    field[6] = figureOfProgram;
+//                    isFieldEmpty[6] = false;
+//                } else if (field[4] == figureOfPlayer & isFieldEmpty[4]) {
+//                    field[4] = figureOfProgram;
+//                    isFieldEmpty[4] = false;
+//                } else if () {
+//
+//                }
+//                playersMove();
+//            case 1:
+//
+//
+//        }
     }
 
     boolean IfPlayerWin() {
