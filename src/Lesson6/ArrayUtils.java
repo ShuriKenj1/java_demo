@@ -1,5 +1,7 @@
 package Lesson6;
 
+import Lesson12.TwoDShape;
+
 public class ArrayUtils {
 
     int[] array;
@@ -25,5 +27,17 @@ public class ArrayUtils {
             else break;
         }
         return arrayToCopyIn;
+    }
+
+    public static void printArray(TwoDShape[] array) {
+        // благодаря тому, что метод принимает массивы типа TwoDShape,
+        // чей класс является материнским для Rectangle и для Triangle
+        // этот метод стал универсален, и не нужно прописывать в отдельности для
+        // Rectangle и Triangle
+        System.out.println();
+        for (int i = 0; i < array.length; i++){
+            System.out.println(array[i].getName());
+            array[i].showDimensions();
+        }
     }
 }
