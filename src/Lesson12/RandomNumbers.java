@@ -1,12 +1,13 @@
 package Lesson12;
 
+import Lesson6.ArrayUtils;
 import com.sun.source.tree.BreakTree;
 
 import java.util.Random;
 import java.util.Scanner;
 
 // класс для генерации рандомных цифр (в том числе для TicTacToe с рандомным ботом)
-public class RandomNumbers {
+public class RandomNumbers{
     public static void main(String[] args) {
 
         // 1. способ генерации рандомных чисел
