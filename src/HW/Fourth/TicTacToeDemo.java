@@ -10,9 +10,8 @@ public class TicTacToeDemo {
         proba.Rules();
         proba.choiceOfFigure();
 
-        do {
-           proba.Game();
-        } while (!proba.ifProgramWin || !proba.ifYouWin);
+        proba.Game();
+
 
     }
 }

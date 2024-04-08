@@ -1,8 +1,10 @@
 package HW.Fourth;
+//(!+ не забыть добавить ничью)
 
 import java.util.Scanner;
 
 public class TicTacToe {
+    int counterOfMoves;
     char field[] = new char[9];
     char figureOfPlayer;
     char figureOfProgram;
@@ -62,11 +64,21 @@ public class TicTacToe {
 
     void Game() {
         if (figureOfPlayer == 'X') {
-            playersMove();
-            programsMove();
+            for (counterOfMoves = 0;!IfProgWin() | !IfPlayerWin(); ) {
+                playersMove();
+                IfPlayerWin();
+                counterOfMoves++;
+                programsMove();
+                IfProgWin();
+            }
         } else if (figureOfPlayer == 'O') {
-            programsMove();
-            playersMove();
+            for (counterOfMoves = 0;!IfProgWin() | !IfPlayerWin(); ) {
+                programsMove();
+                IfProgWin();
+                playersMove();
+                IfPlayerWin();
+                counterOfMoves++;
+            }
         }
     }
 
@@ -103,49 +115,138 @@ public class TicTacToe {
         } else if (playerDecidesWhereToGo == 8 & isFieldEmpty[8]) {
             field[8] = figureOfPlayer;
             isFieldEmpty[8] = false;
-        } else if (playerDecidesWhereToGo < '0' | playerDecidesWhereToGo > '8') {
-            System.out.println("Only numbers from 0 to 8 may be used, try again");
-            playersMove();
         } else {
             System.out.println("You can't put your figure here. Try another.");
             playersMove();
+//            else (playerDecidesWhereToGo < '0' | playerDecidesWhereToGo > '8') {
+//                System.out.println("Only numbers from 0 to 8 may be used, try again");
+//                playersMove();
         }
-        showField();
-        IfPlayerWin();
     }
 
     void programsMove() {
-        if (field[4] != figureOfPlayer & isFieldEmpty[4]) {
-            field[4] = figureOfProgram;
-            isFieldEmpty[4] = false;
-        }
-
-        /*
-        здесь рассмотреть все варианты победы для робота,
-        и только потом уже разобраться с вариантами ходов от игрока - потому что бот должен понимать,
-        что если он в шаге от победы - это сверх приоритет должно иметь и дальше не имеет значение куда походил игрок
-         */
-
-//        попробую через такую структуру расписать все
-        if (field[0] == figureOfProgram) {
-            if (field[1] == figureOfProgram) {
-                field[2] = figureOfProgram;
-                isFieldEmpty[2] = false;
-            } else if (field[2] == figureOfProgram) {
-                field[1] = figureOfProgram;
-                isFieldEmpty[1] = false;
-            } else if (field[4] == figureOfProgram) {
-                field[8] = figureOfProgram;
-                isFieldEmpty[8] = false;
-            }
-            /*
-            подумать, стоит ли делать так, как ниже - если я тут ему распишу все варианты,
-            то тогда он не сможет отталкиваться никак от игры игрока.
-            (можно попробовать дописать и посмотреть, как он будет тогда действовать и будет ли такая стратегия игры для него эффективной)
-             */
-            else if (isFieldEmpty[0]){
+        //сперва рассматривается игра program за 'X'
+        if (figureOfProgram == 'X') {
+            if (isFieldEmpty[0]) {
                 field[0] = figureOfProgram;
                 isFieldEmpty[0] = false;
+            }
+            if (playerDecidesWhereToGo == 6 & isFieldEmpty[2]) {
+                field[2] = figureOfProgram;
+                isFieldEmpty[2] = false;
+            } else if (playerDecidesWhereToGo == 2 | playerDecidesWhereToGo == 8 & isFieldEmpty[6]) {
+                field[6] = figureOfProgram;
+                isFieldEmpty[6] = false;
+            } else if (playerDecidesWhereToGo == 1 | playerDecidesWhereToGo == 3 | playerDecidesWhereToGo == 5 | playerDecidesWhereToGo == 7) {
+
+            }
+        }
+
+
+//        попробую через такую структуру расписать (все варианты, ведущие к победе для робота)
+        if (field[0] == figureOfProgram) {
+            if (field[1] == figureOfProgram & isFieldEmpty[2]) {
+                field[2] = figureOfProgram;
+                isFieldEmpty[2] = false;
+            } else if (field[2] == figureOfProgram & isFieldEmpty[1]) {
+                field[1] = figureOfProgram;
+                isFieldEmpty[1] = false;
+            } else if (field[4] == figureOfProgram & isFieldEmpty[8]) {
+                field[8] = figureOfProgram;
+                isFieldEmpty[8] = false;
+            } else if (field[8] == figureOfProgram & isFieldEmpty[4]) {
+                field[4] = figureOfProgram;
+                isFieldEmpty[4] = false;
+            } else if (field[3] == figureOfProgram & isFieldEmpty[6]) {
+                field[6] = figureOfProgram;
+                isFieldEmpty[6] = false;
+            } else if (field[6] == figureOfProgram & isFieldEmpty[3]) {
+                field[3] = figureOfProgram;
+                isFieldEmpty[3] = false;
+            }
+        }
+        if (field[1] == figureOfProgram) {
+            if (field[2] == figureOfProgram & isFieldEmpty[0]) {
+                field[0] = figureOfProgram;
+                isFieldEmpty[0] = false;
+            } else if (field[4] == figureOfProgram & isFieldEmpty[7]) {
+                field[7] = figureOfProgram;
+                isFieldEmpty[7] = false;
+            } else if (field[7] == figureOfProgram & isFieldEmpty[4]) {
+                field[4] = figureOfProgram;
+                isFieldEmpty[4] = false;
+            }
+        }
+        if (field[2] == figureOfProgram) {
+            if (field[1] == figureOfProgram & isFieldEmpty[0]) {
+                field[0] = figureOfProgram;
+                isFieldEmpty[0] = false;
+            } else if (field[4] == figureOfProgram & isFieldEmpty[6]) {
+                field[6] = figureOfProgram;
+                isFieldEmpty[6] = false;
+            } else if (field[6] == figureOfProgram & isFieldEmpty[4]) {
+                field[4] = figureOfProgram;
+                isFieldEmpty[4] = false;
+            } else if (field[5] == figureOfProgram & isFieldEmpty[8]) {
+                field[8] = figureOfProgram;
+                isFieldEmpty[5] = false;
+            } else if (field[8] == figureOfProgram & isFieldEmpty[5]) {
+                field[5] = figureOfProgram;
+                isFieldEmpty[5] = false;
+            }
+        }
+        if (field[3] == figureOfProgram) {
+            if (field[0] == figureOfProgram & isFieldEmpty[6]) {
+                field[6] = figureOfProgram;
+                isFieldEmpty[6] = false;
+            } else if (field[6] == figureOfProgram & isFieldEmpty[0]) {
+                field[0] = figureOfProgram;
+                isFieldEmpty[0] = false;
+            } else if (field[4] == figureOfProgram & isFieldEmpty[5]) {
+                field[5] = figureOfProgram;
+                isFieldEmpty[5] = false;
+            } else if (field[5] == figureOfProgram & isFieldEmpty[4]) {
+                field[4] = figureOfProgram;
+                isFieldEmpty[4] = false;
+            }
+        }
+        if (field[4] == figureOfProgram) {
+            if (field[8] == figureOfProgram & isFieldEmpty[0]) {
+                field[0] = figureOfProgram;
+                isFieldEmpty[0] = false;
+            } else if (field[7] == figureOfProgram & isFieldEmpty[1]) {
+                field[1] = figureOfProgram;
+                isFieldEmpty[1] = false;
+            } else if (field[6] == figureOfProgram & isFieldEmpty[2]) {
+                field[2] = figureOfProgram;
+                isFieldEmpty[2] = false;
+            } else if (field[5] == figureOfProgram & isFieldEmpty[3]) {
+                field[3] = figureOfProgram;
+                isFieldEmpty[3] = false;
+            }
+        }
+        if (field[5] == figureOfProgram) {
+            if (field[8] == figureOfProgram & isFieldEmpty[2]) {
+                field[2] = figureOfProgram;
+                isFieldEmpty[2] = false;
+            }
+        }
+        if (field[6] == figureOfProgram) {
+            if (field[3] == figureOfProgram & isFieldEmpty[0]) {
+                field[0] = figureOfProgram;
+                isFieldEmpty[0] = false;
+            } else if (field[7] == figureOfProgram & isFieldEmpty[8]) {
+                field[8] = figureOfProgram;
+                isFieldEmpty[8] = false;
+            } else if (field[8] == figureOfProgram & isFieldEmpty[7]) {
+                field[7] = figureOfProgram;
+                isFieldEmpty[7] = false;
+            }
+        }
+        if (field[7] == figureOfProgram) {
+            if (field[8] == figureOfProgram & isFieldEmpty[6]) {
+                field[6] = figureOfProgram;
+                isFieldEmpty[6] = false;
             }
         }
 
