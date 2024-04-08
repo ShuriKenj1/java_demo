@@ -15,6 +15,7 @@ public class ArrayUtils {
         for (int i = 0; i < array.length; i++)
             System.out.print(array[i] + " ");
     }
+
     public void initArray() {
         for (int i = 0; i < array.length; i++)
             array[i] = i;
@@ -35,9 +36,16 @@ public class ArrayUtils {
         // этот метод стал универсален, и не нужно прописывать в отдельности для
         // Rectangle и Triangle
         System.out.println();
-        for (int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             System.out.println(array[i].getName());
             array[i].showDimensions();
+        }
+    }
+
+    public static void printArray(int[] array) {
+        System.out.println();
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
         }
     }
 }
