@@ -56,8 +56,8 @@ public class TicTacToe {
                 figureOfProgram = 'O';
             } else if (figureOfPlayer == 'O') {
                 initializeField();
-                System.out.println("The program will play for X." +
-                        "\nYou will go after it.");
+                System.out.println("\nThe program will play for X.");
+                System.out.println("You will go after it.");
                 figureOfProgram = 'X';
             } else {
                 System.out.println("You may write here only X or O, try again\n");
@@ -70,18 +70,19 @@ public class TicTacToe {
         if (figureOfPlayer == 'X') {
             do {
                 playersMove();
+                counterOfFiguresPlacedByPlayer++;
                 if (CheckIfGameEnds()) break;
                 programsMove();
                 if (CheckIfGameEnds()) break;
-                System.out.println("Counter: " + counterOfFiguresPlacedByPlayer);
             } while (!CheckIfGameEnds());
         } else if (figureOfPlayer == 'O') {
             do {
                 programsMove();
                 if (CheckIfGameEnds()) break;
                 playersMove();
+                counterOfFiguresPlacedByPlayer++;
                 if (CheckIfGameEnds()) break;
-                System.out.println("Counter: " + counterOfFiguresPlacedByPlayer);
+                System.out.println("Counter " + counterOfFiguresPlacedByPlayer);
             } while (!CheckIfGameEnds());
         }
     }
@@ -123,158 +124,285 @@ public class TicTacToe {
             System.out.println("You can't put your figure here. Try another.");
             playersMove();
         }
-        counterOfFiguresPlacedByPlayer++;
     }
 
     void programsMove() {
         //сперва рассматривается игра program за 'X'
         if (figureOfProgram == 'X') {
+            if (field[0] == figureOfProgram) {
+                if (field[1] == figureOfProgram & isFieldEmpty[2]) {
+                    field[2] = figureOfProgram;
+                    isFieldEmpty[2] = false;
+                } else if (field[2] == figureOfProgram & isFieldEmpty[1]) {
+                    field[1] = figureOfProgram;
+                    isFieldEmpty[1] = false;
+                } else if (field[4] == figureOfProgram & isFieldEmpty[8]) {
+                    field[8] = figureOfProgram;
+                    isFieldEmpty[8] = false;
+                } else if (field[8] == figureOfProgram & isFieldEmpty[4]) {
+                    field[4] = figureOfProgram;
+                    isFieldEmpty[4] = false;
+                } else if (field[3] == figureOfProgram & isFieldEmpty[6]) {
+                    field[6] = figureOfProgram;
+                    isFieldEmpty[6] = false;
+                } else if (field[6] == figureOfProgram & isFieldEmpty[3]) {
+                    field[3] = figureOfProgram;
+                    isFieldEmpty[3] = false;
+                }
+            }
+            if (field[1] == figureOfProgram) {
+                if (field[2] == figureOfProgram & isFieldEmpty[0]) {
+                    field[0] = figureOfProgram;
+                    isFieldEmpty[0] = false;
+                } else if (field[4] == figureOfProgram & isFieldEmpty[7]) {
+                    field[7] = figureOfProgram;
+                    isFieldEmpty[7] = false;
+                } else if (field[7] == figureOfProgram & isFieldEmpty[4]) {
+                    field[4] = figureOfProgram;
+                    isFieldEmpty[4] = false;
+                }
+            }
+            if (field[2] == figureOfProgram) {
+                if (field[1] == figureOfProgram & isFieldEmpty[0]) {
+                    field[0] = figureOfProgram;
+                    isFieldEmpty[0] = false;
+                } else if (field[4] == figureOfProgram & isFieldEmpty[6]) {
+                    field[6] = figureOfProgram;
+                    isFieldEmpty[6] = false;
+                } else if (field[6] == figureOfProgram & isFieldEmpty[4]) {
+                    field[4] = figureOfProgram;
+                    isFieldEmpty[4] = false;
+                } else if (field[5] == figureOfProgram & isFieldEmpty[8]) {
+                    field[8] = figureOfProgram;
+                    isFieldEmpty[5] = false;
+                } else if (field[8] == figureOfProgram & isFieldEmpty[5]) {
+                    field[5] = figureOfProgram;
+                    isFieldEmpty[5] = false;
+                }
+            }
+            if (field[3] == figureOfProgram) {
+                if (field[0] == figureOfProgram & isFieldEmpty[6]) {
+                    field[6] = figureOfProgram;
+                    isFieldEmpty[6] = false;
+                } else if (field[6] == figureOfProgram & isFieldEmpty[0]) {
+                    field[0] = figureOfProgram;
+                    isFieldEmpty[0] = false;
+                } else if (field[4] == figureOfProgram & isFieldEmpty[5]) {
+                    field[5] = figureOfProgram;
+                    isFieldEmpty[5] = false;
+                } else if (field[5] == figureOfProgram & isFieldEmpty[4]) {
+                    field[4] = figureOfProgram;
+                    isFieldEmpty[4] = false;
+                }
+            }
+            if (field[4] == figureOfProgram) {
+                if (field[8] == figureOfProgram & isFieldEmpty[0]) {
+                    field[0] = figureOfProgram;
+                    isFieldEmpty[0] = false;
+                } else if (field[7] == figureOfProgram & isFieldEmpty[1]) {
+                    field[1] = figureOfProgram;
+                    isFieldEmpty[1] = false;
+                } else if (field[6] == figureOfProgram & isFieldEmpty[2]) {
+                    field[2] = figureOfProgram;
+                    isFieldEmpty[2] = false;
+                } else if (field[5] == figureOfProgram & isFieldEmpty[3]) {
+                    field[3] = figureOfProgram;
+                    isFieldEmpty[3] = false;
+                }
+            }
+            if (field[5] == figureOfProgram) {
+                if (field[8] == figureOfProgram & isFieldEmpty[2]) {
+                    field[2] = figureOfProgram;
+                    isFieldEmpty[2] = false;
+                }
+            }
+            if (field[6] == figureOfProgram) {
+                if (field[3] == figureOfProgram & isFieldEmpty[0]) {
+                    field[0] = figureOfProgram;
+                    isFieldEmpty[0] = false;
+                } else if (field[7] == figureOfProgram & isFieldEmpty[8]) {
+                    field[8] = figureOfProgram;
+                    isFieldEmpty[8] = false;
+                } else if (field[8] == figureOfProgram & isFieldEmpty[7]) {
+                    field[7] = figureOfProgram;
+                    isFieldEmpty[7] = false;
+                }
+            }
+            if (field[7] == figureOfProgram) {
+                if (field[8] == figureOfProgram & isFieldEmpty[6]) {
+                    field[6] = figureOfProgram;
+                    isFieldEmpty[6] = false;
+                }
+            }
             switch (counterOfFiguresPlacedByPlayer) {
                 case 0:
                     field[0] = figureOfProgram;
                     isFieldEmpty[0] = false;
                     break;
                 case 1:
-                    if (playerDecidesWhereToGo == 3 | playerDecidesWhereToGo == 4 | playerDecidesWhereToGo == 6 & isFieldEmpty[2]) {
+                    if (playerDecidesWhereToGo == 3 | playerDecidesWhereToGo == 6) {
                         field[2] = figureOfProgram;
                         isFieldEmpty[2] = false;
                         break;
                     } else if (playerDecidesWhereToGo == 1 | playerDecidesWhereToGo == 2 | playerDecidesWhereToGo == 5 |
-                            playerDecidesWhereToGo == 7 | playerDecidesWhereToGo == 8 & isFieldEmpty[6]) {
+                            playerDecidesWhereToGo == 7 | playerDecidesWhereToGo == 8) {
                         field[6] = figureOfProgram;
                         isFieldEmpty[6] = false;
                         break;
+                    } else if (playerDecidesWhereToGo == 4) {
+                        field[8] = figureOfProgram;
+                        isFieldEmpty[8] = false;
+                        break;
                     }
                 case 2:
-                    if ((field[1] == figureOfPlayer | field[3] == figureOfPlayer | field[5] == figureOfPlayer | field[7] == figureOfPlayer) & isFieldEmpty[4]) {
+                    if ((field[1] == figureOfPlayer | (field[3] == figureOfPlayer & field[2] == figureOfProgram) | field[5] == figureOfPlayer | field[7] == figureOfPlayer) & isFieldEmpty[4]) {
                         field[4] = figureOfProgram;
                         isFieldEmpty[4] = false;
-                        break;
-                    } else if (field[4] == figureOfPlayer & isFieldEmpty[7]) {
-                        field[7] = figureOfProgram;
-                        isFieldEmpty[7] = false;
                         break;
                     } else if ((field[2] == figureOfPlayer | field[6] == figureOfPlayer) & isFieldEmpty[8]) {
                         field[8] = figureOfProgram;
                         isFieldEmpty[8] = false;
                         break;
-                    } else if (field[8] == figureOfPlayer & isFieldEmpty[2]){
+                    } else if (field[8] == figureOfPlayer & isFieldEmpty[2]) {
                         field[2] = figureOfProgram;
                         isFieldEmpty[2] = false;
                         break;
+                    } else if (field[4] == figureOfPlayer) {
+                        if (playerDecidesWhereToGo == 1) {
+                            field[7] = figureOfProgram;
+                            isFieldEmpty[7] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 2) {
+                            field[6] = figureOfProgram;
+                            isFieldEmpty[6] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 3) {
+                            field[5] = figureOfProgram;
+                            isFieldEmpty[5] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 5) {
+                            field[3] = figureOfProgram;
+                            isFieldEmpty[3] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 6) {
+                            field[2] = figureOfProgram;
+                            isFieldEmpty[2] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 7) {
+                            field[1] = figureOfProgram;
+                            isFieldEmpty[1] = false;
+                            break;
+                        }
+                    } else if (field[6] == figureOfProgram & isFieldEmpty[3]){
+                        field[3] = figureOfProgram;
+                        isFieldEmpty[3] = false;
+                        break;
+                    } else if (field[2] == figureOfProgram & isFieldEmpty[1]){
+                        field[1] = figureOfProgram;
+                        isFieldEmpty[1] = false;
+                        break;
+                    }
+                case 3:
+                    if (field[3] == figureOfPlayer & ((field[1] == figureOfPlayer & isFieldEmpty[2]) | field[5] == figureOfPlayer | field[7] == figureOfPlayer)) {
+                        if (playerDecidesWhereToGo == 2) {
+                            field[8] = figureOfProgram;
+                            isFieldEmpty[8] = false;
+                            break;
+                        } else {
+                            field[2] = figureOfProgram;
+                            isFieldEmpty[2] = false;
+                            break;
+                        }
+                    } else if (field[3] == figureOfPlayer) {
+                        if (field[2] == figureOfPlayer) {
+                            if (playerDecidesWhereToGo == 4) {
+                                field[7] = figureOfProgram;
+                                isFieldEmpty[7] = false;
+                                break;
+                            } else {
+                                field[4] = figureOfProgram;
+                                isFieldEmpty[4] = false;
+                                break;
+                            }
+                        }
+                        if (field[1] == figureOfPlayer) {
+                            if (playerDecidesWhereToGo == 6) {
+                                field[8] = figureOfProgram;
+                                isFieldEmpty[8] = false;
+                                break;
+                            } else {
+                                field[6] = figureOfProgram;
+                                isFieldEmpty[6] = false;
+                                break;
+                            }
+                        }
+                        if (field[8] == figureOfPlayer) {
+                            if (playerDecidesWhereToGo == 1) {
+                                field[4] = figureOfProgram;
+                                isFieldEmpty[4] = false;
+                                break;
+                            } else {
+                                field[1] = figureOfProgram;
+                                isFieldEmpty[1] = false;
+                                break;
+                            }
+                        }
+                    } else if (field[1] == figureOfPlayer & field[6] == figureOfPlayer) {
+                        if (playerDecidesWhereToGo == 4) {
+                            field[5] = figureOfProgram;
+                            isFieldEmpty[5] = false;
+                            break;
+                        } else {
+                            field[4] = figureOfProgram;
+                            isFieldEmpty[4] = false;
+                            break;
+                        }
+                    }
+                    if (field[4] == figureOfPlayer) {
+                        if (field[7] == figureOfProgram) {
+                            field[2] = figureOfProgram;
+                            isFieldEmpty[2] = false;
+                            break;
+                        } else if (field[6] == figureOfProgram) {
+                            if (playerDecidesWhereToGo == 3) {
+                                field[7] = figureOfProgram;
+                                isFieldEmpty[7] = false;
+                                break;
+                            } else {
+                                field[3] = figureOfProgram;
+                                isFieldEmpty[3] = false;
+                                break;
+                            }
+                        } else if (field[5] == figureOfProgram) {
+                            field[6] = figureOfProgram;
+                            isFieldEmpty[6] = false;
+                            break;
+                        } else if (field[3] == figureOfProgram) {
+                            field[2] = figureOfProgram;
+                            isFieldEmpty[2] = false;
+                            break;
+                        } else if (field[2] == figureOfProgram) {
+                            if (playerDecidesWhereToGo == 1){
+                                field[5] = figureOfProgram;
+                                isFieldEmpty[5] = false;
+                                break;
+                            } else {
+                                field[1] = figureOfProgram;
+                                isFieldEmpty[1] = false;
+                                break;
+                            }
+                        } else if (field[1] == figureOfProgram) {
+                            field[6] = figureOfProgram;
+                            isFieldEmpty[6] = false;
+                            break;
+                        }
                     }
             }
-
         }
-
+    }
 
 //        попробую через такую структуру расписать (все варианты, ведущие к победе для робота)
-//        if (field[0] == figureOfProgram) {
-//            if (field[1] == figureOfProgram & isFieldEmpty[2]) {
-//                field[2] = figureOfProgram;
-//                isFieldEmpty[2] = false;
-//            } else if (field[2] == figureOfProgram & isFieldEmpty[1]) {
-//                field[1] = figureOfProgram;
-//                isFieldEmpty[1] = false;
-//            } else if (field[4] == figureOfProgram & isFieldEmpty[8]) {
-//                field[8] = figureOfProgram;
-//                isFieldEmpty[8] = false;
-//            } else if (field[8] == figureOfProgram & isFieldEmpty[4]) {
-//                field[4] = figureOfProgram;
-//                isFieldEmpty[4] = false;
-//            } else if (field[3] == figureOfProgram & isFieldEmpty[6]) {
-//                field[6] = figureOfProgram;
-//                isFieldEmpty[6] = false;
-//            } else if (field[6] == figureOfProgram & isFieldEmpty[3]) {
-//                field[3] = figureOfProgram;
-//                isFieldEmpty[3] = false;
-//            }
-//        }
-//        if (field[1] == figureOfProgram) {
-//            if (field[2] == figureOfProgram & isFieldEmpty[0]) {
-//                field[0] = figureOfProgram;
-//                isFieldEmpty[0] = false;
-//            } else if (field[4] == figureOfProgram & isFieldEmpty[7]) {
-//                field[7] = figureOfProgram;
-//                isFieldEmpty[7] = false;
-//            } else if (field[7] == figureOfProgram & isFieldEmpty[4]) {
-//                field[4] = figureOfProgram;
-//                isFieldEmpty[4] = false;
-//            }
-//        }
-//        if (field[2] == figureOfProgram) {
-//            if (field[1] == figureOfProgram & isFieldEmpty[0]) {
-//                field[0] = figureOfProgram;
-//                isFieldEmpty[0] = false;
-//            } else if (field[4] == figureOfProgram & isFieldEmpty[6]) {
-//                field[6] = figureOfProgram;
-//                isFieldEmpty[6] = false;
-//            } else if (field[6] == figureOfProgram & isFieldEmpty[4]) {
-//                field[4] = figureOfProgram;
-//                isFieldEmpty[4] = false;
-//            } else if (field[5] == figureOfProgram & isFieldEmpty[8]) {
-//                field[8] = figureOfProgram;
-//                isFieldEmpty[5] = false;
-//            } else if (field[8] == figureOfProgram & isFieldEmpty[5]) {
-//                field[5] = figureOfProgram;
-//                isFieldEmpty[5] = false;
-//            }
-//        }
-//        if (field[3] == figureOfProgram) {
-//            if (field[0] == figureOfProgram & isFieldEmpty[6]) {
-//                field[6] = figureOfProgram;
-//                isFieldEmpty[6] = false;
-//            } else if (field[6] == figureOfProgram & isFieldEmpty[0]) {
-//                field[0] = figureOfProgram;
-//                isFieldEmpty[0] = false;
-//            } else if (field[4] == figureOfProgram & isFieldEmpty[5]) {
-//                field[5] = figureOfProgram;
-//                isFieldEmpty[5] = false;
-//            } else if (field[5] == figureOfProgram & isFieldEmpty[4]) {
-//                field[4] = figureOfProgram;
-//                isFieldEmpty[4] = false;
-//            }
-//        }
-//        if (field[4] == figureOfProgram) {
-//            if (field[8] == figureOfProgram & isFieldEmpty[0]) {
-//                field[0] = figureOfProgram;
-//                isFieldEmpty[0] = false;
-//            } else if (field[7] == figureOfProgram & isFieldEmpty[1]) {
-//                field[1] = figureOfProgram;
-//                isFieldEmpty[1] = false;
-//            } else if (field[6] == figureOfProgram & isFieldEmpty[2]) {
-//                field[2] = figureOfProgram;
-//                isFieldEmpty[2] = false;
-//            } else if (field[5] == figureOfProgram & isFieldEmpty[3]) {
-//                field[3] = figureOfProgram;
-//                isFieldEmpty[3] = false;
-//            }
-//        }
-//        if (field[5] == figureOfProgram) {
-//            if (field[8] == figureOfProgram & isFieldEmpty[2]) {
-//                field[2] = figureOfProgram;
-//                isFieldEmpty[2] = false;
-//            }
-//        }
-//        if (field[6] == figureOfProgram) {
-//            if (field[3] == figureOfProgram & isFieldEmpty[0]) {
-//                field[0] = figureOfProgram;
-//                isFieldEmpty[0] = false;
-//            } else if (field[7] == figureOfProgram & isFieldEmpty[8]) {
-//                field[8] = figureOfProgram;
-//                isFieldEmpty[8] = false;
-//            } else if (field[8] == figureOfProgram & isFieldEmpty[7]) {
-//                field[7] = figureOfProgram;
-//                isFieldEmpty[7] = false;
-//            }
-//        }
-//        if (field[7] == figureOfProgram) {
-//            if (field[8] == figureOfProgram & isFieldEmpty[6]) {
-//                field[6] = figureOfProgram;
-//                isFieldEmpty[6] = false;
-//            }
-//        }
-    }
+
 
     boolean IfPlayerWin() {
         if (field[0] == figureOfPlayer & field[1] == figureOfPlayer & field[2] == figureOfPlayer) {
