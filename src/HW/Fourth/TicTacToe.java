@@ -154,7 +154,7 @@ public class TicTacToe {
                         field[7] = figureOfProgram;
                         isFieldEmpty[7] = false;
                         break;
-                    } else if (field[2] == figureOfPlayer & field[6] == figureOfPlayer & isFieldEmpty[8]) {
+                    } else if ((field[2] == figureOfPlayer | field[6] == figureOfPlayer) & isFieldEmpty[8]) {
                         field[8] = figureOfProgram;
                         isFieldEmpty[8] = false;
                         break;
