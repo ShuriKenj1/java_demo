@@ -272,8 +272,7 @@ public class TicTacToe {
                             isFieldEmpty[4] = false;
                             break;
                         }
-                    }
-                    if (field[4] == figureOfPlayer) { // проверить все варианты после 1 case 4 и всех последствий в case 2 от первого хода Player 'O' == 4
+                    } else if (field[4] == figureOfPlayer) { // проверить все варианты после case 2
                         if (field[7] == figureOfProgram) {
                             field[2] = figureOfProgram;
                             isFieldEmpty[2] = false;
