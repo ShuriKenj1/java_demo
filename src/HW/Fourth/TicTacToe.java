@@ -272,12 +272,12 @@ public class TicTacToe {
                             isFieldEmpty[4] = false;
                             break;
                         }
-                    } else if (field[4] == figureOfPlayer) { // проверить все варианты после case 2
-                        if (field[7] == figureOfProgram) {
+                    } else if (field[4] == figureOfPlayer){ // проверить все варианты после case 2
+                        if (field[7] == figureOfProgram){
                             field[2] = figureOfProgram;
                             isFieldEmpty[2] = false;
                             break;
-                        } else if (field[6] == figureOfProgram) {
+                        } else if (field[6] == figureOfProgram){
                             if (playerDecidesWhereToGo == 3) {
                                 field[7] = figureOfProgram;
                                 isFieldEmpty[7] = false;
