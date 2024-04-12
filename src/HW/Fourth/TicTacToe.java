@@ -198,107 +198,57 @@ public class TicTacToe {
                         }
                     }
                 case 3:
-                    if (field[3] == figureOfPlayer) {
-                        if (field[4] == figureOfProgram & (field[1] == figureOfPlayer | field[5] == figureOfPlayer | field[7] == figureOfPlayer)) { //проверка первый ход 1, 5 или 7
-                            if (field[6] == figureOfProgram) {
-                                if (playerDecidesWhereToGo == 2 & isFieldEmpty[8]) {
-                                    field[8] = figureOfProgram;
-                                    isFieldEmpty[8] = false;
-                                    break;
-                                } else if (playerDecidesWhereToGo == 8) {
-                                    field[2] = figureOfProgram;
-                                    isFieldEmpty[2] = false;
-                                    break;
-                                } else if (isFieldEmpty[2] | isFieldEmpty[8]) {
-                                    field[2] = figureOfProgram;
-                                    isFieldEmpty[2] = false;
-                                    break;
-                                }
-                            } else if (field[2] == figureOfProgram) { // проверка 3 первый ход
-                                if (playerDecidesWhereToGo == 6 & isFieldEmpty[8]) {
-                                    field[8] = figureOfProgram;
-                                    isFieldEmpty[8] = false;
-                                    break;
-                                } else if (playerDecidesWhereToGo == 8) {
-                                    field[6] = figureOfProgram;
-                                    isFieldEmpty[6] = false;
-                                    break;
-                                } else if (isFieldEmpty[6] | isFieldEmpty[8]) {
-                                    field[8] = figureOfProgram;
-                                    isFieldEmpty[8] = false;
-                                    break;
-                                }
-                            }
-                        } else if (field[2] == figureOfPlayer) { // проверка 2 первый ход
-                            if (playerDecidesWhereToGo == 4 & isFieldEmpty[7]) {
-                                field[7] = figureOfProgram;
-                                isFieldEmpty[7] = false;
-                                break;
-                            } else if (playerDecidesWhereToGo == 7 & isFieldEmpty[4]) {
-                                field[4] = figureOfProgram;
-                                isFieldEmpty[4] = false;
-                                break;
-                            } else if (isFieldEmpty[4] | isFieldEmpty[7]) {
-                                field[4] = figureOfProgram;
-                                isFieldEmpty[4] = false;
-                                break;
-                            }
-                        } else if (field[8] == figureOfPlayer) { // проверка 8 первый ход
-                            if (playerDecidesWhereToGo == 1 & isFieldEmpty[4]) {
-                                field[4] = figureOfProgram;
-                                isFieldEmpty[4] = false;
-                                break;
-                            } else if (playerDecidesWhereToGo == 4 & isFieldEmpty[1]) {
-                                field[1] = figureOfProgram;
-                                isFieldEmpty[1] = false;
-                                break;
-                            } else if (isFieldEmpty[1] | isFieldEmpty[4]){
-                                field[1] = figureOfProgram;
-                                isFieldEmpty[1] = false;
-                                break;
-                            }
-                        }
-                    } else if (field[1] == figureOfPlayer & field[6] == figureOfPlayer) { // проверка 6 первый ход
-                        if (playerDecidesWhereToGo == 4 & isFieldEmpty[5]) {
-                            field[5] = figureOfProgram;
-                            isFieldEmpty[5] = false;
-                            break;
-                        } else if (playerDecidesWhereToGo == 5 & isFieldEmpty[4]) {
-                            field[4] = figureOfProgram;
-                            isFieldEmpty[4] = false;
-                            break;
-                        } else if (isFieldEmpty[4] | isFieldEmpty[5]){
-                            field[4] = figureOfProgram;
-                            isFieldEmpty[4] = false;
-                            break;
-                        }
-                    } else if (field[4] == figureOfPlayer){ // проверить все варианты после case 2
-                        if (field[7] == figureOfProgram){
+                    if (field[4] == figureOfPlayer) { // проверка 4 первый ход
+                        if (field[1] == figureOfPlayer & playerDecidesWhereToGo == 6) {
                             field[2] = figureOfProgram;
                             isFieldEmpty[2] = false;
                             break;
-                        } else if (field[6] == figureOfProgram){
+                        } else if (isFieldEmpty[6]) {
+                            field[6] = figureOfProgram;
+                            isFieldEmpty[6] = false;
+                            break;
+                        }
+                        if (field[2] == figureOfPlayer) {
                             if (playerDecidesWhereToGo == 3) {
                                 field[7] = figureOfProgram;
                                 isFieldEmpty[7] = false;
                                 break;
-                            } else {
+                            } else if (playerDecidesWhereToGo == 7) {
+                                field[3] = figureOfProgram;
+                                isFieldEmpty[3] = false;
+                                break;
+                            } else if (isFieldEmpty[3]) {
                                 field[3] = figureOfProgram;
                                 isFieldEmpty[3] = false;
                                 break;
                             }
-                        } else if (field[5] == figureOfProgram) {
-                            field[6] = figureOfProgram;
-                            isFieldEmpty[6] = false;
-                            break;
-                        } else if (field[3] == figureOfProgram) {
-                            field[2] = figureOfProgram;
-                            isFieldEmpty[2] = false;
-                            break;
-                        } else if (field[2] == figureOfProgram) {
+                        }
+                        if (field[3] == figureOfPlayer & playerDecidesWhereToGo == 2) {
+                                field[6] = figureOfProgram;
+                                isFieldEmpty[6] = false;
+                                break;
+                            } else if (isFieldEmpty[2]){
+                                field[2] = figureOfProgram;
+                                isFieldEmpty[2] = false;
+                                break;
+                            }
+                        if (field[5] == figureOfPlayer & playerDecidesWhereToGo == 6) {
+                                field[2] = figureOfProgram;
+                                isFieldEmpty[2] = false;
+                                break;
+                            } else if (isFieldEmpty[6]){
+                                field[6] = figureOfProgram;
+                                isFieldEmpty[6] = false;
+                                break;
+                            }
+                        if (field[2] == figureOfProgram) {
                             if (playerDecidesWhereToGo == 1) {
                                 field[5] = figureOfProgram;
                                 isFieldEmpty[5] = false;
+                                break;
+                            } else if (playerDecidesWhereToGo == 5) {
+                                field[1] = figureOfProgram;
+                                isFieldEmpty[1] = false;
                                 break;
                             } else {
                                 field[1] = figureOfProgram;
@@ -306,14 +256,94 @@ public class TicTacToe {
                                 break;
                             }
                         } else if (field[1] == figureOfProgram) {
-                            field[6] = figureOfProgram;
-                            isFieldEmpty[6] = false;
-                            break;
+                            if (playerDecidesWhereToGo == 2) {
+                                field[6] = figureOfProgram;
+                                isFieldEmpty[6] = false;
+                                break;
+                            } else {
+                                field[2] = figureOfProgram;
+                                isFieldEmpty[2] = false;
+                                break;
+                            }
+                        }
+                    } else if (field[1] == figureOfPlayer & field[6] == figureOfPlayer & field[2] == figureOfProgram) { // проверка 6 первый ход
+                            if (playerDecidesWhereToGo == 4) {
+                                field[5] = figureOfProgram;
+                                isFieldEmpty[5] = false;
+                                break;
+                            } else if (playerDecidesWhereToGo == 5) {
+                                field[4] = figureOfProgram;
+                                isFieldEmpty[4] = false;
+                                break;
+                            } else {
+                                field[4] = figureOfProgram;
+                                isFieldEmpty[4] = false;
+                                break;
+                            }
+                        } else if (field[3] == figureOfPlayer) {
+                            if (field[4] == figureOfProgram & (field[1] == figureOfPlayer | field[5] == figureOfPlayer | field[7] == figureOfPlayer)) { //проверка первый ход 1, 5 или 7
+                                if (field[6] == figureOfProgram) {
+                                    if (playerDecidesWhereToGo == 2 & isFieldEmpty[8]) {
+                                        field[8] = figureOfProgram;
+                                        isFieldEmpty[8] = false;
+                                        break;
+                                    } else if (playerDecidesWhereToGo == 8) {
+                                        field[2] = figureOfProgram;
+                                        isFieldEmpty[2] = false;
+                                        break;
+                                    } else if (isFieldEmpty[2] | isFieldEmpty[8]) {
+                                        field[2] = figureOfProgram;
+                                        isFieldEmpty[2] = false;
+                                        break;
+                                    }
+                                } else if (field[2] == figureOfProgram) { // проверка 3 первый ход
+                                    if (playerDecidesWhereToGo == 6 & isFieldEmpty[8]) {
+                                        field[8] = figureOfProgram;
+                                        isFieldEmpty[8] = false;
+                                        break;
+                                    } else if (playerDecidesWhereToGo == 8) {
+                                        field[6] = figureOfProgram;
+                                        isFieldEmpty[6] = false;
+                                        break;
+                                    } else if (isFieldEmpty[6] | isFieldEmpty[8]) {
+                                        field[8] = figureOfProgram;
+                                        isFieldEmpty[8] = false;
+                                        break;
+                                    }
+                                }
+                            } else if (field[2] == figureOfPlayer & isFieldEmpty[4]) { // проверка 2 первый ход
+                                if (playerDecidesWhereToGo == 4 & isFieldEmpty[7]) {
+                                    field[7] = figureOfProgram;
+                                    isFieldEmpty[7] = false;
+                                    break;
+                                } else if (playerDecidesWhereToGo == 7) {
+                                    field[4] = figureOfProgram;
+                                    isFieldEmpty[4] = false;
+                                    break;
+                                } else {
+                                    field[4] = figureOfProgram;
+                                    isFieldEmpty[4] = false;
+                                    break;
+                                }
+                            } else if (field[8] == figureOfPlayer) { // проверка 8 первый ход
+                                if (playerDecidesWhereToGo == 1 & isFieldEmpty[4]) {
+                                    field[4] = figureOfProgram;
+                                    isFieldEmpty[4] = false;
+                                    break;
+                                } else if (playerDecidesWhereToGo == 4 & isFieldEmpty[1]) {
+                                    field[1] = figureOfProgram;
+                                    isFieldEmpty[1] = false;
+                                    break;
+                                } else if (isFieldEmpty[1] | isFieldEmpty[4]) {
+                                    field[1] = figureOfProgram;
+                                    isFieldEmpty[1] = false;
+                                    break;
+                                }
+                            }
                         }
                     }
             }
         }
-    }
 
     boolean IfPlayerWin() {
         if (field[0] == figureOfPlayer & field[1] == figureOfPlayer & field[2] == figureOfPlayer) {
