@@ -1,16 +1,31 @@
 package HW.Fourth;
 
+import java.util.Scanner;
+
 public class TicTacToeDemo {
     public static void main(String[] args) {
+        char playAgain;
 
         TicTacToe proba = new TicTacToe();
 
         System.out.println("Welcome to the TicTacToe Game!\n");
 
         proba.Rules();
-        proba.choiceOfFigure();
+//        do {
+            proba.choiceOfFigure();
+            proba.Game();
 
-        proba.Game();
+//            System.out.println("-----------------------------------------");
+//            System.out.println("\nThat was a great game! Wanna play again?");
+//            System.out.println("Y - yes, N - no");
+//
+//            Scanner check = new Scanner(System.in);
+//            playAgain = check.nextLine().charAt(0);
+//            if (playAgain == 'n'){
+//                System.out.println("Till next time!");
+//            }
+//        } while (playAgain != 'n');
+
 
     }
 }
