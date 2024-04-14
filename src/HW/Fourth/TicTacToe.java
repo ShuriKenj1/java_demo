@@ -1,5 +1,4 @@
 package HW.Fourth;
-//(!+ не забыть добавить ничью)
 
 import java.util.Scanner;
 
