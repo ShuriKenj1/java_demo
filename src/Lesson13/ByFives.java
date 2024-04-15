@@ -1,22 +1,17 @@
 package Lesson13;
 
-import Lesson14.A;
-
-public class ByTwo implements Series {
+public class ByFives implements Series{
     int start;
     int val;
-    int prev;
 
-    ByTwo(){
+    ByFives(){
         start = 0;
         val = 0;
-        prev = -2;
     }
 
     @Override
     public int getNext() {
-        prev = val;
-        val += 2;
+        val += 5;
         return val;
     }
 
@@ -24,17 +19,11 @@ public class ByTwo implements Series {
     public void reset() {
         start = 0;
         val = 0;
-        prev = -2;
     }
 
     @Override
     public void setStart(int x) {
         start = x;
         val = x;
-        prev = x - 2;
-    }
-
-    int getPrevious(){
-       return prev;
     }
 }
