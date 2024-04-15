@@ -417,104 +417,140 @@ public class TicTacToe {
                         }
                     }
             }
+        } else if (figureOfProgram == 'O') {
+            switch (counterOfFiguresPlacedByPlayer) {
+                case 1:
+                    if (playerDecidesWhereToGo == 4) {
+                        field[0] = figureOfProgram;
+                        isFieldEmpty[0] = false;
+                        break;
+                    } else {
+                        field[4] = figureOfProgram;
+                        isFieldEmpty[4] = false;
+                        break;
+                    }
+                case 2:
+                    if (field[0] == figureOfProgram & field[4] == figureOfPlayer) { // если первый ход игрока = 4, а мы 0
+
+                    } else if (field[4] == figureOfProgram & field[0] == figureOfPlayer) { // если первый ход игрока = 0, а мы 4
+                        if (playerDecidesWhereToGo == 1) {
+                            field[2] = figureOfProgram;
+                            isFieldEmpty[2] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 2 | playerDecidesWhereToGo == 5 | playerDecidesWhereToGo == 8) {
+                            field[1] = figureOfProgram;
+                            isFieldEmpty[1] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 3) {
+                            field[6] = figureOfProgram;
+                            isFieldEmpty[6] = false;
+                            break;
+                        } else if (playerDecidesWhereToGo == 6 | playerDecidesWhereToGo == 7) {
+                            field[3] = figureOfProgram;
+                            isFieldEmpty[3] = false;
+                            break;
+                        }
+                    }
+
+                    }
+            }
+        }
+
+
+        boolean IfPlayerWin () {
+            if (field[0] == figureOfPlayer & field[1] == figureOfPlayer & field[2] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            } else if (field[3] == figureOfPlayer & field[4] == figureOfPlayer & field[5] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            } else if (field[6] == figureOfPlayer & field[7] == figureOfPlayer & field[8] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            } else if (field[0] == figureOfPlayer & field[3] == figureOfPlayer & field[6] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            } else if (field[1] == figureOfPlayer & field[4] == figureOfPlayer & field[7] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            } else if (field[2] == figureOfPlayer & field[5] == figureOfPlayer & field[8] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            } else if (field[0] == figureOfPlayer & field[4] == figureOfPlayer & field[8] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            } else if (field[2] == figureOfPlayer & field[4] == figureOfPlayer & field[6] == figureOfPlayer) {
+                System.out.println("You win!");
+                ifYouWin = true;
+                showField();
+            }
+            return ifYouWin;
+        }
+
+        boolean IfProgWin () {
+            if (field[0] == figureOfProgram & field[1] == figureOfProgram & field[2] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            } else if (field[3] == figureOfProgram & field[4] == figureOfProgram & field[5] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            } else if (field[6] == figureOfProgram & field[7] == figureOfProgram & field[8] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            } else if (field[0] == figureOfProgram & field[3] == figureOfProgram & field[6] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            } else if (field[1] == figureOfProgram & field[4] == figureOfProgram & field[7] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            } else if (field[2] == figureOfProgram & field[5] == figureOfProgram & field[8] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            } else if (field[0] == figureOfProgram & field[4] == figureOfProgram & field[8] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            } else if (field[2] == figureOfProgram & field[4] == figureOfProgram & field[6] == figureOfProgram) {
+                System.out.println("Game over!");
+                ifProgramWin = true;
+                showField();
+            }
+            return ifProgramWin;
+        }
+
+        boolean IfTie () {
+            if (!ifProgramWin & !ifYouWin & IfAllFieldsHaveFigures()) {
+                System.out.println("Well, that's a tie!");
+                ifTie = true;
+                showField();
+            } else ifTie = false;
+            return ifTie;
+        }
+
+        boolean CheckIfGameEnds () {
+            if (IfProgWin()) ifGameEnds = true;
+            else if (IfPlayerWin()) ifGameEnds = true;
+            else ifGameEnds = IfTie();
+            return ifGameEnds;
+        }
+
+        boolean IfAllFieldsHaveFigures () {
+            allFieldsAreFilled = !isFieldEmpty[0] & !isFieldEmpty[1] & !isFieldEmpty[2]
+                    & !isFieldEmpty[3] & !isFieldEmpty[4] & !isFieldEmpty[5]
+                    & !isFieldEmpty[6] & !isFieldEmpty[7] & !isFieldEmpty[8];
+            return allFieldsAreFilled;
         }
     }
-
-
-    boolean IfPlayerWin() {
-        if (field[0] == figureOfPlayer & field[1] == figureOfPlayer & field[2] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        } else if (field[3] == figureOfPlayer & field[4] == figureOfPlayer & field[5] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        } else if (field[6] == figureOfPlayer & field[7] == figureOfPlayer & field[8] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        } else if (field[0] == figureOfPlayer & field[3] == figureOfPlayer & field[6] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        } else if (field[1] == figureOfPlayer & field[4] == figureOfPlayer & field[7] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        } else if (field[2] == figureOfPlayer & field[5] == figureOfPlayer & field[8] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        } else if (field[0] == figureOfPlayer & field[4] == figureOfPlayer & field[8] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        } else if (field[2] == figureOfPlayer & field[4] == figureOfPlayer & field[6] == figureOfPlayer) {
-            System.out.println("You win!");
-            ifYouWin = true;
-            showField();
-        }
-        return ifYouWin;
-    }
-
-    boolean IfProgWin() {
-        if (field[0] == figureOfProgram & field[1] == figureOfProgram & field[2] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        } else if (field[3] == figureOfProgram & field[4] == figureOfProgram & field[5] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        } else if (field[6] == figureOfProgram & field[7] == figureOfProgram & field[8] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        } else if (field[0] == figureOfProgram & field[3] == figureOfProgram & field[6] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        } else if (field[1] == figureOfProgram & field[4] == figureOfProgram & field[7] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        } else if (field[2] == figureOfProgram & field[5] == figureOfProgram & field[8] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        } else if (field[0] == figureOfProgram & field[4] == figureOfProgram & field[8] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        } else if (field[2] == figureOfProgram & field[4] == figureOfProgram & field[6] == figureOfProgram) {
-            System.out.println("Game over!");
-            ifProgramWin = true;
-            showField();
-        }
-        return ifProgramWin;
-    }
-
-    boolean IfTie() {
-        if (!ifProgramWin & !ifYouWin & IfAllFieldsHaveFigures()) {
-            System.out.println("Well, that's a tie!");
-            ifTie = true;
-            showField();
-        } else ifTie = false;
-        return ifTie;
-    }
-
-    boolean CheckIfGameEnds() {
-        if (IfProgWin()) ifGameEnds = true;
-        else if (IfPlayerWin()) ifGameEnds = true;
-        else ifGameEnds = IfTie();
-        return ifGameEnds;
-    }
-
-    boolean IfAllFieldsHaveFigures() {
-        allFieldsAreFilled = !isFieldEmpty[0] & !isFieldEmpty[1] & !isFieldEmpty[2]
-                & !isFieldEmpty[3] & !isFieldEmpty[4] & !isFieldEmpty[5]
-                & !isFieldEmpty[6] & !isFieldEmpty[7] & !isFieldEmpty[8];
-        return allFieldsAreFilled;
-    }
-}
