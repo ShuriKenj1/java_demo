@@ -12,7 +12,6 @@ public class TicTacToe {
     boolean allFieldsAreFilled = false;
     boolean ifYouWin = false;
     boolean ifProgramWin = false;
-    boolean ifTie;
     boolean ifGameEnds = false;
     boolean isFieldEmpty[] = new boolean[9];
 
@@ -64,37 +63,32 @@ public class TicTacToe {
     }
 
     void Game() {
-        if (figureOfPlayer == 'X') {
             do {
-                playersMove();
-                counterOfFiguresPlacedByPlayer++;
+                if (figureOfPlayer == 'X') {
+                    playersMove();
+                    counterOfFiguresPlacedByPlayer++;
+                    System.out.println("Counter " + counterOfFiguresPlacedByPlayer);
+                } else if (figureOfPlayer == 'O') {
+                    programsMove();
+                }
                 if (CheckIfGameEnds()) {
                     counterOfFiguresPlacedByPlayer = 0;
                     break;
                 }
-                System.out.println("Counter " + counterOfFiguresPlacedByPlayer);
-                programsMove();
-                if (CheckIfGameEnds()) {
-                    counterOfFiguresPlacedByPlayer = 0;
-                    break;
+
+                if (figureOfPlayer == 'X') {
+                    programsMove();
+                } else if (figureOfPlayer == 'O') {
+                    playersMove();
+                    counterOfFiguresPlacedByPlayer++;
+                    System.out.println("Counter " + counterOfFiguresPlacedByPlayer);
                 }
-            } while (!CheckIfGameEnds());
-        } else if (figureOfPlayer == 'O') {
-            do {
-                programsMove();
-                if (CheckIfGameEnds()) {
-                    counterOfFiguresPlacedByPlayer = 0;
-                    break;
-                }
-                playersMove();
-                counterOfFiguresPlacedByPlayer++;
                 if (CheckIfGameEnds()) {
                     counterOfFiguresPlacedByPlayer = 0;
                     break;
                 }
             } while (!CheckIfGameEnds());
         }
-    }
 
     void playersMove() {
         showField();
@@ -102,36 +96,15 @@ public class TicTacToe {
         Scanner PlayerMove = new Scanner(System.in);
         playerDecidesWhereToGo = PlayerMove.nextInt();
 
-        if (playerDecidesWhereToGo == 0 & isFieldEmpty[0]) {
-            field[0] = figureOfPlayer;
-            isFieldEmpty[0] = false;
-        } else if (playerDecidesWhereToGo == 1 & isFieldEmpty[1]) {
-            field[1] = figureOfPlayer;
-            isFieldEmpty[1] = false;
-        } else if (playerDecidesWhereToGo == 2 & isFieldEmpty[2]) {
-            field[2] = figureOfPlayer;
-            isFieldEmpty[2] = false;
-        } else if (playerDecidesWhereToGo == 3 & isFieldEmpty[3]) {
-            field[3] = figureOfPlayer;
-            isFieldEmpty[3] = false;
-        } else if (playerDecidesWhereToGo == 4 & isFieldEmpty[4]) {
-            field[4] = figureOfPlayer;
-            isFieldEmpty[4] = false;
-        } else if (playerDecidesWhereToGo == 5 & isFieldEmpty[5]) {
-            field[5] = figureOfPlayer;
-            isFieldEmpty[5] = false;
-        } else if (playerDecidesWhereToGo == 6 & isFieldEmpty[6]) {
-            field[6] = figureOfPlayer;
-            isFieldEmpty[6] = false;
-        } else if (playerDecidesWhereToGo == 7 & isFieldEmpty[7]) {
-            field[7] = figureOfPlayer;
-            isFieldEmpty[7] = false;
-        } else if (playerDecidesWhereToGo == 8 & isFieldEmpty[8]) {
-            field[8] = figureOfPlayer;
-            isFieldEmpty[8] = false;
-        } else if (!isFieldEmpty[playerDecidesWhereToGo]) {
-            System.out.println("You can't put your figure here. Try another.");
-            playersMove();
+        for (int i = 0; i <= field.length; i++) {
+            if (playerDecidesWhereToGo == i & isFieldEmpty[i]) {
+                field[i] = figureOfPlayer;
+                isFieldEmpty[i] = false;
+                break;
+            } else if (!isFieldEmpty[playerDecidesWhereToGo]) {
+                System.out.println("You can't put your figure here. Try another.");
+                playersMove();
+            }
         }
     }
 
@@ -140,7 +113,7 @@ public class TicTacToe {
         if (figureOfProgram == 'X') {
             switch (counterOfFiguresPlacedByPlayer) {
                 case 0:
-                    field[0] = figureOfProgram;
+                    field[0] = figureOfProgram; // закинуть все это дело в методы и вызывать их везде тут (надо подумать, сработает ли из-за break)
                     isFieldEmpty[0] = false;
                     break;
                 case 1:
@@ -532,15 +505,12 @@ public class TicTacToe {
         boolean IfTie () {
             if (!ifProgramWin & !ifYouWin & IfAllFieldsHaveFigures()) {
                 System.out.println("Well, that's a tie!");
-                ifTie = true;
                 showField();
-            } else ifTie = false;
-            return ifTie;
+                return true;
+            } else return false;
         }
-
         boolean CheckIfGameEnds () {
-            if (IfProgWin()) ifGameEnds = true;
-            else if (IfPlayerWin()) ifGameEnds = true;
+            if (IfProgWin() | IfPlayerWin()) ifGameEnds = true;
             else ifGameEnds = IfTie();
             return ifGameEnds;
         }
