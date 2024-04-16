@@ -48,7 +48,6 @@ public class TicTacToe {
         Scanner XorO = new Scanner(System.in);
         figureOfPlayer = XorO.nextLine().charAt(0);
 
-        do {
             if (figureOfPlayer == 'X') {
                 initializeField();
                 System.out.println("You will go first");
@@ -62,7 +61,6 @@ public class TicTacToe {
                 System.out.println("You may write here only X or O, try again\n");
                 choiceOfFigure();
             }
-        } while (figureOfPlayer != 'X' && figureOfPlayer != 'O');
     }
 
     void Game() {
