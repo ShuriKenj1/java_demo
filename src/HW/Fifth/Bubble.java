@@ -1,4 +1,4 @@
-package ExamplesShildt.Chapter5;
+package HW.Fifth;
 
 // Упражнение 5.1
 // Демонстрация алгоритма пузырьковой сортировки
