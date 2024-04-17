@@ -95,14 +95,14 @@ public class TicTacToe {
         Scanner PlayerMove = new Scanner(System.in);
         playerDecidesWhereToGo = PlayerMove.nextInt();
 
-        for (int i = 0; i <= field.length; i++) {
+        if (!isFieldEmpty[playerDecidesWhereToGo]) {
+            System.out.println("You can't put your figure here. Try another.");
+            playersMove();
+        } else for (int i = 0; i <= field.length; i++) {
             if (playerDecidesWhereToGo == i & isFieldEmpty[i]) {
                 field[i] = figureOfPlayer;
                 isFieldEmpty[i] = false;
                 break;
-            } else if (!isFieldEmpty[playerDecidesWhereToGo]) {
-                System.out.println("You can't put your figure here. Try another.");
-                playersMove();
             }
         }
     }
@@ -342,8 +342,26 @@ public class TicTacToe {
                     }
                 case 2:
                     if (field[0] == figureOfProgram & field[4] == figureOfPlayer) { // если первый ход игрока = 4, а мы 0
-
-                    } else if (field[4] == figureOfProgram & field[0] == figureOfPlayer) { // если первый ход игрока = 0, а мы 4
+                        if (playerDecidesWhereToGo == 1){
+                            prMakesMove(7);
+                            break;
+                        } else if (playerDecidesWhereToGo == 2 | playerDecidesWhereToGo == 8){
+                            prMakesMove(6);
+                            break;
+                        } else if (playerDecidesWhereToGo == 3){
+                            prMakesMove(5);
+                            break;
+                        } else if (playerDecidesWhereToGo == 5){
+                            prMakesMove(3);
+                            break;
+                        } else if (playerDecidesWhereToGo == 6){
+                            prMakesMove(2);
+                            break;
+                        } else if (playerDecidesWhereToGo == 7){
+                            prMakesMove(1);
+                            break;
+                        }
+                    } else if (field[4] == figureOfProgram & field[0] == figureOfPlayer) { // если первый ход игрока = 0, а мы 4 (рассмотрено)
                         if (playerDecidesWhereToGo == 1) {
                             prMakesMove(2);
                             break;
