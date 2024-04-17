@@ -11,7 +11,7 @@ public class Bubble {
         size = 10; // количествво сортируемых элементов
 
         // Отобразить исходный массив
-        System.out.println("Исходный массив:");
+        System.out.print("Исходный массив:");
         for (int i = 0; i < size; i++)
             System.out.print(" " + nums[i]);
         System.out.println();
@@ -19,9 +19,10 @@ public class Bubble {
         // реализовать алгоритм пузырьковой сортировки
         for (a = 1; a < size; a++)
             for (b = size - 1; b >= a; b--) {
-                if (nums[b - 1] > nums[b]) { // если требуемый порядок следования
-                                             // не соблюдается, поменять элементы
-                                             // местами
+                if (nums[b - 1] > nums[b]) {
+                    // если требуемый порядок следования
+                    // не соблюдается, поменять элементы
+                    // местами
                     t = nums[b - 1];
                     nums[b - 1] = nums[b];
                     nums[b] = t;
@@ -29,7 +30,7 @@ public class Bubble {
             }
 
         // Отобразить отсортированный массив
-        System.out.println("Отсортированный массив:");
+        System.out.print("Отсортированный массив:");
         for (int i = 0; i < size; i++)
             System.out.print(" " + nums[i]);
         System.out.println();
