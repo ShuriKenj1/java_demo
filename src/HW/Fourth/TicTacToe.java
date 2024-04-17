@@ -341,7 +341,7 @@ public class TicTacToe {
                         break;
                     }
                 case 2:
-                    if (field[0] == figureOfProgram & field[4] == figureOfPlayer) { // если первый ход игрока = 4, а мы 0
+                    if (field[0] == figureOfProgram & field[4] == figureOfPlayer) { // если первый ход игрока = 4, а мы 0 (рассмотрено)
                         if (playerDecidesWhereToGo == 1){
                             prMakesMove(7);
                             break;
@@ -376,6 +376,8 @@ public class TicTacToe {
                             break;
                         }
                     }
+                case 3:
+
             }
         }
     }
