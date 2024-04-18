@@ -6,7 +6,7 @@ public class ArrayUtils {
 
     int[] array;
 
-    ArrayUtils(int[] array) {
+    public ArrayUtils(int[] array) {
         this.array = array;
     }
 
@@ -14,6 +14,13 @@ public class ArrayUtils {
         System.out.println();
         for (int i = 0; i < array.length; i++)
             System.out.print(array[i] + " ");
+    }
+
+    public static void printArray(int[] array) {
+        System.out.println();
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 
     public void initArray() {
@@ -39,13 +46,6 @@ public class ArrayUtils {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i].getName());
             array[i].showDimensions();
-        }
-    }
-
-    public static void printArray(int[] array) {
-        System.out.println();
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
         }
     }
 }
