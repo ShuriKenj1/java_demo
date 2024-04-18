@@ -377,7 +377,71 @@ public class TicTacToe {
                         }
                     }
                 case 3:
+                    if (field[4] == figureOfPlayer & field[0] == figureOfProgram){ // вся ветка работает
+                        if (field[1] == figureOfPlayer & field[7] == figureOfProgram){
+                            if (playerDecidesWhereToGo == 2){
+                                prMakesMove(6);
+                                break;
+                            } else if (playerDecidesWhereToGo == 5 | playerDecidesWhereToGo == 8){
+                                prMakesMove(3);
+                                break;
+                            } else if (playerDecidesWhereToGo == 3){
+                                prMakesMove(5);
+                                break;
+                            } else if (playerDecidesWhereToGo == 6){
+                                prMakesMove(2);
+                                break;
+                            }
+                        } else if (field[3] == figureOfPlayer & field[5] == figureOfProgram){
+                            if (playerDecidesWhereToGo == 1){
+                                prMakesMove(7);
+                                break;
+                            } else if (playerDecidesWhereToGo == 2){
+                                prMakesMove(6);
+                                break;
+                            } else if (playerDecidesWhereToGo == 6){
+                                prMakesMove(2);
+                                break;
+                            } else if (playerDecidesWhereToGo == 7 | playerDecidesWhereToGo == 8){
+                                prMakesMove(1);
+                                break;
+                            }
+                        } else if ((field[2] == figureOfPlayer & field[6] == figureOfProgram) | (field[8] == figureOfPlayer & field[6] == figureOfProgram)){
+                            if (playerDecidesWhereToGo == 3){
+                                prMakesMove(5);
+                                break;
+                            } else {
+                                prMakesMove(3);
+                                break;
+                            }
+                        } else if (field[5] == figureOfPlayer & field[3] == figureOfProgram){
+                            if (playerDecidesWhereToGo == 6){
+                                prMakesMove(2);
+                                break;
+                            } else {
+                                prMakesMove(6);
+                                break;
+                            }
+                        } else if (field[6] == figureOfPlayer & field[2] == figureOfProgram){
+                            if (playerDecidesWhereToGo == 1){
+                                prMakesMove(7);
+                                break;
+                            } else {
+                                prMakesMove(1);
+                                break;
+                            }
+                        } else if (field[7] == figureOfPlayer & field[1] == figureOfProgram){
+                            if (playerDecidesWhereToGo == 2){
+                                prMakesMove(6);
+                                break;
+                            } else {
+                                prMakesMove(2);
+                                break;
+                            }
+                        }
+                    } else if (field[4] == figureOfProgram){ // рассмотреть если первый ход 'O'(Program) в центре
 
+                    }
             }
         }
     }
