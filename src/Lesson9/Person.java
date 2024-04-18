@@ -28,4 +28,25 @@ public class Person {
     public int getAge(){
         return age;
     }
+
+    private String getName(String password) throws IllegalAccessException {
+        if (password.equals(this.password))
+            return name;
+        else
+            throw new IllegalAccessException();
+    }
+
+    public void requestPersonalInfo(){
+        System.out.println("Enter password: ");
+        Scanner in = new Scanner(System.in);
+        String passwordCandidate = in.nextLine();
+        try {
+            System.out.println(getName(passwordCandidate));
+            System.out.println(getName(passwordCandidate));
+            System.out.println(getName(passwordCandidate));
+        } catch (IllegalAccessException e) {
+//           logging security violation event
+            System.out.println("The password is incorrect. No personal info will be provided.");
+        }
+    }
 }
