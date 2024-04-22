@@ -1,16 +1,16 @@
-package Lesson14;
+package Lesson16;
 
-public class Queue {
+public class FixedQueue implements InterfaceCharQueue{
 
     private char[] q;
     private int putloc, getloc;
 
-    Queue(int size){
+    FixedQueue(int size){
         q = new char[size + 1];
         putloc = getloc = 0;
     }
 
-    Queue(Queue obj){
+    FixedQueue(FixedQueue obj){
         putloc = obj.putloc;
         getloc = obj.getloc;
         q = new char[obj.q.length];
@@ -20,19 +20,17 @@ public class Queue {
         }
     }
 
-    void put(char ch){
+    public void put(char ch) throws QueueFullException {
         if (putloc == q.length - 1){
-            System.out.print("\nQueue is full");
-            return;
+            throw new QueueFullException(q.length - 1);
         }
         putloc++;
         q[putloc] = ch;
     }
 
-    char get(){
+    public char get() throws QueueEmptyException {
         if (getloc == putloc){
-            System.out.print("\nQueue is empty");
-            return (char) 0;
+            throw new QueueEmptyException(q.length - 1);
         }
         getloc++;
         return q[getloc];
