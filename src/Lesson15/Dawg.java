@@ -6,7 +6,7 @@ public class Dawg {
     boolean isLeashPutOn;
     boolean isMuzzlePutOn;
 
-    Dawg(String name){
+    public Dawg(String name){
         this.name = name;
     }
 
