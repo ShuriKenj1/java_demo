@@ -5,7 +5,7 @@ public class StringDemo {
         // Различные способы объявления строк
         String str1 = new String("В Java строки - объекты.");
         String str2 = "Их можно создавать разными способами";
-        String str3 = new String(str2 + " и добавлять подобным образом дополнительные.");
+        String str3 = new String(str2 + " и соединять дополнительные.");
 
         System.out.println(str1);
         System.out.println(str2);
