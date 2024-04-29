@@ -32,6 +32,11 @@ public class Book implements Comparable<Book>{
         this.genre = genre;
     }
 
+    public Book(String name, int numOfPages) {
+        this(name);
+        this.numOfPages = numOfPages;
+    }
+
     public Genre getGenre() {
         return genre;
     }
@@ -99,18 +104,18 @@ public class Book implements Comparable<Book>{
         return 0;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Book book = (Book) o;
-//        return getYearOfPublication() == book.getYearOfPublication() && isTranslated() == book.isTranslated() && getGenre() == book.getGenre() && Objects.equals(getName(), book.getName()) && Objects.equals(getAuthor(), book.getAuthor());
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(getGenre(), getName(), getAuthor(), getYearOfPublication(), isTranslated());
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return getYearOfPublication() == book.getYearOfPublication() && isTranslated() == book.isTranslated() && getGenre() == book.getGenre() && Objects.equals(getName(), book.getName()) && Objects.equals(getAuthor(), book.getAuthor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getGenre(), getName(), getAuthor(), getYearOfPublication(), isTranslated());
+    }
 
     @Override
     public String toString() {
