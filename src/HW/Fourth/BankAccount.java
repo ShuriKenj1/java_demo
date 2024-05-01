@@ -47,7 +47,7 @@ public class BankAccount {
                 chkCounter++;
                 ifPassChk = false;
             }
-        } while (ifPassChk == false & chkCounter < 2);
+        } while (!ifPassChk & chkCounter < 2);
         return ifPassChk;
     }
 
