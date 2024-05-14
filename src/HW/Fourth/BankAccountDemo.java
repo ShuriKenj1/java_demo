@@ -8,9 +8,9 @@ public class BankAccountDemo {
 
         account1.BalancePlus();
 
-        account1.BalanceMinus();
-
         account1.checkBalance();
+
+        account1.BalanceMinus();
 
     }
 }

@@ -23,11 +23,11 @@ public class BankAccount {
         password = passwordScan.nextLine();
 
         System.out.println("Account successfully created!" +
-                "\n Your current balance: " + currentBalance);
+                "\nYour current balance: " + currentBalance);
     }
 
     void checkBalance(){
-        System.out.println("Your current balance is " + currentBalance);
+        System.out.println("\nYour current balance is " + currentBalance);
     }
 
     boolean ifTrueAccount() {
@@ -40,26 +40,30 @@ public class BankAccount {
             if (passwordChk.equals(password)) {
                 System.out.println("Password correct");
                 ifPassChk = true;
-            } else if (chkCounter == 2) {
+            } else if (chkCounter == 3) {
                 System.out.println("Sorry, we can't identify you. Try another time.");
+                ifPassChk = false;
             } else {
                 System.out.println("Try again");
                 chkCounter++;
                 ifPassChk = false;
             }
-        } while (!ifPassChk & chkCounter < 2);
+        } while (!ifPassChk & chkCounter < 3);
         return ifPassChk;
     }
 
     void BalancePlus() {
         ifTrueAccount();
         if (ifPassChk) {
-            System.out.println("Choose sum you want to add to account");
+            System.out.println("\nChoose sum you want to add to account");
             Scanner moneyPlus = new Scanner(System.in);
             int addToAccount = moneyPlus.nextInt();
             currentBalance = addToAccount + currentBalance;
             System.out.println("Money successfully added.\n" +
                     "Your current balance is " + currentBalance);
+        } else {
+            System.out.println("We couldn't approve that's your account." +
+                    " Connect with our technical issues team using number 00-0897-88");
         }
     }
 
@@ -68,14 +72,15 @@ public class BankAccount {
         ifTrueAccount();
         if (ifPassChk & currentBalance != 0) {
             do {
-                System.out.println("Choose sum you want to withdraw from your account");
+                System.out.println("\nChoose sum you want to withdraw from your account");
                 Scanner moneyMinus = new Scanner(System.in);
                 int withdrawFromAccount = moneyMinus.nextInt();
                 if (withdrawFromAccount <= currentBalance) {
                     currentBalance = currentBalance - withdrawFromAccount;
                     System.out.println("Take your money from the ATM.\n" +
                             "Your current balance is " + currentBalance);
-                } else if (withdrawFromAccount > currentBalance) {
+                    repeat = false;
+                } else {
                     System.out.println("Sorry, you don't have this amount of money in your account." +
                             "\nTry another amount.");
                     repeat = true;
@@ -83,6 +88,9 @@ public class BankAccount {
             } while (repeat);
         } else if (currentBalance == 0) {
             System.out.println("You don't have money in your account((((");
+        } else {
+            System.out.println("We couldn't approve that's your account." +
+                    " Connect with our technical issues team using number 00-0897-88");
         }
     }
 }
