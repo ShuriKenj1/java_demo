@@ -1,4 +1,4 @@
-package ExamplesShildt.Chapter7.Super;
+package ExamplesShildt.Chapter7.Super.ShapesEx;
 // Подкласс для представления треугольников,
 // производный от класса TwoDShape
 public class TriangleS extends TwoDShape{

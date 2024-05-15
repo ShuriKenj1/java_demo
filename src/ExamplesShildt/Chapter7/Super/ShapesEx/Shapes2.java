@@ -1,4 +1,4 @@
-package ExamplesShildt.Chapter7.Super;
+package ExamplesShildt.Chapter7.Super.ShapesEx;
 public class Shapes2 {
     public static void main(String[] args) {
         TriangleS t1 = new TriangleS("закрашенный", 4.0, 4.0);

@@ -1,4 +1,4 @@
-package ExamplesShildt.Chapter7.Super;
+package ExamplesShildt.Chapter7.Super.ShapesEx;
 
 public class Shapes3 {
     public static void main(String[] args) {
