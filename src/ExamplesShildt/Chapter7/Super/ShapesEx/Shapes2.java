@@ -3,6 +3,8 @@ public class Shapes2 {
     public static void main(String[] args) {
         TriangleS t1 = new TriangleS("закрашенный", 4.0, 4.0);
         TriangleS t2 = new TriangleS("контурный", 8.0, 12.0);
+        Circle c1 = new Circle(8);
+
 
         System.out.println("Информация о t1: ");
         t1.showStyle();
@@ -15,5 +17,8 @@ public class Shapes2 {
         t2.showStyle();
         t2.showDim();
         System.out.println("Площадь - " + t2.area());
+
+        System.out.println("Информация о c1: ");
+        System.out.println("Площадь - " + c1.area());
     }
 }
